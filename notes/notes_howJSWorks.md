@@ -76,3 +76,35 @@ It is also important to remember in which execution context variables will be st
 * Important to note that the execution stack and scope chain are different things!
   * Execution stack is the order in which functions are called
   * Scope chain is order in which functions are lexically written
+
+## This Keyword
+
+* Points at the global object
+* Points to the object that is calling the method
+* Not assigned a value until the function where it is defined is called
+
+Running `console.log(this)` in the top level will simply return details of the window object. This is also the case in a regular function call, i.e. in the following instance:
+
+`function calcAge(year) {
+  console.log(2018 - year);
+  console.log(this);
+  }`
+
+However, calling from a method inside an object will return the details of that object. E.g.:
+
+`bugatti = {
+  speed: 'fast',
+  released: 2018,
+  giveSpeed: function() {
+    console.log(this)
+  }
+  }`
+
+...will return:
+
+`{
+  speed: 'fast',
+  released: 2018
+  }`
+
+* N.B. if calling 'this' from an inner function, it reverts to returning the window object as it is just a regular function call
