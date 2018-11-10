@@ -29,3 +29,26 @@ DOM and DOM manipulation
 * To add in the word **RAGE** (in bold), the JS would read:
 
 `document.querySelector('#cheese').innerHTML('<strong>RAGE</strong>')`;
+
+* To change the CSS property of an object, use `.style.`... and then insert the property to be changed
+* E.g. to change the _display_ property of the cheese id to _none_:
+
+`document.querySelector('#cheese').style.display = 'none'`;
+
+## Reading from the DOM
+
+* This is very simple, just omit 'writing' method from the end of above line, and store this to a variable:
+
+`let cheese = document.querySelector('#cheese').textContent`
+
+## Events
+
+* Notifications sent to the code to notify it that something has happened on the webpage, e.g.
+  * clicking a button
+  * resizing a window
+  * scrolling
+* Event listeners are functions which wait for an event and then perform an action
+* Event can only be processed and handled once the execution stack is empty
+  * These are loaded up in the message queue in the meantime
+  * When they are added to their stack, they get their own execution context
+* Full list of events are found [here][https://developer.mozilla.org/en-US/docs/Web/Events]
