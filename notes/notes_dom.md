@@ -28,4 +28,4 @@ DOM and DOM manipulation
   * This takes a string which is injected into this HTML object and interpreted as raw HTML
 * To add in the word **RAGE** (in bold), the JS would read:
 
-`document.querySelector('#cheese').innerHTML('<strong>RAGE</strong>');
+`document.querySelector('#cheese').innerHTML('<strong>RAGE</strong>')`;
