@@ -52,3 +52,10 @@ DOM and DOM manipulation
   * These are loaded up in the message queue in the meantime
   * When they are added to their stack, they get their own execution context
 * Full list of events are found [here][https://developer.mozilla.org/en-US/docs/Web/Events]
+
+## State variables
+
+* Tells us the condition of a system
+  * i.e. is the game playing, or not playing
+* Use this to block functionality if there is an end condition on some functionality
+* 
