@@ -55,3 +55,17 @@ Objects and Functions
   * in a regular function call, the `this` variable points at the global object
 * `new` operator changes the behaviour in this case
   * Forces the `this` variable to point at the empty object which it creates
+* Can add functions both inside the object constructor, or outside by calling the `.prototype` method on the top level object itself
+
+## Viewing objects in the browser
+
+* Write the name of the object into the console
+  * Use drop-downs to show all the object properties
+* There will also be a `proto` field which can be expanded
+* This shows the `prototype`  property of the top object constructor
+* `.hasOwnProperty` function, which can be called on any object, will return whether a property is inherited from the constructor's prototype property, or if it was declared in the constructor
+* For an array, all methods are stored in the array `prototype` property
+  * **APART FROM `.length()`**
+  * This is created as an object property when the array is instantiated
+
+## Creating Objects
