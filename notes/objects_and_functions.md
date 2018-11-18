@@ -69,3 +69,68 @@ Objects and Functions
   * This is created as an object property when the array is instantiated
 
 ## Creating Objects
+
+* Can use `Object.create`, and then go through and specify the properties separately
+* This is verbose and could take a long time
+* instead, can pass a second argument to `Object.create`, with an object to define the values
+* Requires special syntax, e.g.:
+
+`var jane = Object.create(personProto,
+  {
+    name: {value: 'Jane'},
+    yearOfBirth: {value: 1969},
+    job: {value: 'designer'}
+    });`
+
+* Object.create builds object which inherits directly from object passed into first argument
+  * Provides more control over the prototype property
+* Using a function constructor means that new object inherits from constructor's prototype property
+
+## Primitives and Objects
+
+* Primitives are:
+  * numbers
+  * strings
+  * booleans
+  * undefined
+  * null
+* Variables containing primitives hold the data inside of the variable itself
+* Variables associated with objects do not actually contain the objects
+  * Contain reference to where in memory the object is stored
+* If an object is instantiated, and then another is instantiated and set equal to the first object, changing the value of the first will change the value of the second
+* The same thing happens with functions
+* Passing a primitive to a function will only change the value of this variable inside the function
+  * It will remain unchanged outside the function
+* However passing an object to a function and mutating it will change the object in the global scope
+  * This is because the object is **passed by reference** into the function
+
+## Passing functions as arguments
+
+* Functions are also objects
+* Function is an instance of the object type
+* Known as **first class functions**
+* Callback functions are functions that are passed into functions, to be called later
+* When passing a callback function, simply use placeholders for the arguments and the normal function syntax inside the function
+
+## Functions returning functions
+
+* After return, specify an anonymous function
+  * These anonymous functions can have arguments
+* A good example is a string argument that scans an `if {...} else{...}` statement, and depending on the result returns different functions
+* These return functions can take an argument that is not specified in the top level function
+  * As long as the argument is passed in somewhere, it can travel down the call of functions to be applied in the correct place
+* Double parenthesis syntax can even be used, as is in following example:
+
+`function topLevelPrint(selector) {
+  if (selector === x) {
+    return function(specifier) {
+      console.log('This is x-selected, and ' + specifier + ' specified')
+    }
+  } else {
+    return function(specifier) {
+      console.log('This is misc-selected, and ' + specifier + ' specified')
+    }
+  }
+}
+
+topLevelPrint('x')('exampleSpecifier1')`
