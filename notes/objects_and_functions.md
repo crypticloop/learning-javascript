@@ -170,4 +170,4 @@ topLevelPrint('x')('exampleSpecifier1')`
 * When using `.bind`, you can set some of the arguments for a method that is being borrowed, and store this in a function
   * The use of this is that you can then create a function which is a copy of the original, but with one argument already specified
   * Useful to avoid repeating yourself
-  * This is called **carrying**, and using `.bind` is a way of doing this
+* This is called **carrying**, and using `.bind` is a way of doing this
