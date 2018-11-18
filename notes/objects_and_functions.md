@@ -134,3 +134,40 @@ Objects and Functions
 }
 
 topLevelPrint('x')('exampleSpecifier1')`
+
+## Immediately Invoked Function Expressions (IIFE)
+
+* Used to hide a variable from the global scope
+* Write a function without a name inside parenthesis, and then call it with the arguments directly after the parenthesis close
+* Tricks the Javascript parser into believing that the function declaration is an expression
+  * Use parenthesis as in JS, what is inside parenthesis cannot be a statement
+* Can only call an IIFE once
+  * Just used for data privacy
+
+## Closures
+
+* Closures involve being able to use variables in an outer scope even after a function has stopped its execution
+* **Inner function always has access to variables and parameters of outer function, even after outer function has returned**
+* Even after a function is returned, the scope chain (pointer to variable objects of just called function) remains
+* Execution context has 'closed in' on the variables from the surrounding functions
+* This is built into Javascript
+* Allows a generic function to be used to create more specific functions
+
+## Bind, call and apply
+
+* Call method allows you to call the function from inside one object on another object
+* Start by calling the function from the original object as normal, but don't pass any arguments yet
+* Then add `.call`, whose first argument is always the object to which  the `this` variable should be assigned
+  * e.g. the name of the object you want to perform the method on
+* Then add the remaining arguments as normal
+* This is called **method borrowing**
+
+* Can also use the `.apply` method, which accepts the first arguments (reassignment for `this`) as normal, and then the rest of the arguments in an array
+  * This will only work if the method being borrowed is intending to receive an array as an input
+
+* Bind method also allows the `this` property to be set explicitly
+* Creates a copy of the function instead of immediately calling it
+* When using `.bind`, you can set some of the arguments for a method that is being borrowed, and store this in a function
+  * The use of this is that you can then create a function which is a copy of the original, but with one argument already specified
+  * Useful to avoid repeating yourself
+  * This is called **carrying**, and using `.bind` is a way of doing this
