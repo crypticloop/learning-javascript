@@ -56,3 +56,13 @@ let controller = (function(budgetCtrl, UICtrl) {
 ```
 
 * Still need to make sure that an object is returned with all the public facing methods to be accessed
+
+# Reading input data
+
+* Always want to read this from a UI controller module
+* Can then pass this into the controller module to be actioned
+  * In order for this data to be passed to other modules, it must be returned as a function inside the return object of the module
+
+# Initialisation function
+
+* 
