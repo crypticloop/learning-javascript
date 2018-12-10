@@ -1,16 +1,6 @@
 let budgetController = (function() {
 
-  let x = 23;
 
-  let add = function(x) {
-    return x + a;
-  }
-
-  return {
-    publicTest: function(b) {
-      console.log(add(b));
-    }
-  }
 
 })();
 
@@ -22,6 +12,8 @@ let UIController = (function() {
 
 let controller = (function(budgetCtrl, UICtrl) {
 
-// Some code
+  document.querySelector('.add__btn').addEventListener('click', function() {
+    console.log('Button was clicked');
+  })
 
 })(budgetController, UIController);
