@@ -63,6 +63,9 @@ let controller = (function(budgetCtrl, UICtrl) {
 * Can then pass this into the controller module to be actioned
   * In order for this data to be passed to other modules, it must be returned as a function inside the return object of the module
 
-# Initialisation function
+# Initialisation functions
 
-* 
+* Function to be run as soon as the app is started
+* This should:
+  * Set up all the event listeners
+  * Be run by reference from the controller module, but in the document scope
