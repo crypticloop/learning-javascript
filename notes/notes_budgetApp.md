@@ -25,3 +25,15 @@ Budget App Notes
 
 * For all three above points, if any are violated then the input should not be added to the `data` object
 * Therefore, an `if` statement is placed inside `ctrlAddItem`
+
+# Event Bubbling and Delegations
+
+* When an event is triggered on an element, it is triggered on all the parent elements up to the root `html` element
+* This is known as event **bubbling**
+* The element on which the event was first fired is called the target element
+  * This is stored as a property in the event object
+* Therefore, when an event bubbles up, all of the parent elements in the DOM tree know what the original target was
+* This means we can perform **event delegation** by adding an event handler to a parent element and waiting for the event to bubble up
+* Delegation allows you to:
+  * Have an event handler for many elements, only written once on the parent
+  * Attach an event handler to an object which is not in the DOM when the page is first loaded
