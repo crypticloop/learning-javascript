@@ -52,11 +52,6 @@ let budgetController = (function() {
 
 })();
 
-
-
-
-
-
 let UIController = (function() {
 
   let DOMstrings = {
@@ -68,7 +63,6 @@ let UIController = (function() {
     expenseContainer: '.expenses__list'
 
   }
-
 
   return {
     getInput: function() {
@@ -104,6 +98,19 @@ let UIController = (function() {
 
     },
 
+    clearFields: function() {
+      let fields, fieldsArr;
+
+      fields = document.querySelectorAll(DOMstrings.inputDescription + `, ` + DOMstrings.inputValue);
+
+      fieldsArr = Array.prototype.slice.call(fields);
+
+      fieldsArr.forEach(function(current, index, array) {
+        current.value = "";
+      });
+
+      fieldsArr[0].focus();
+    },
 
     getDOMstrings: function() {
       return DOMstrings;
@@ -111,12 +118,6 @@ let UIController = (function() {
   }
 
 })();
-
-
-
-
-
-
 
 let controller = (function(budgetCtrl, UICtrl) {
 
@@ -143,7 +144,9 @@ let controller = (function(budgetCtrl, UICtrl) {
     newItem = budgetCtrl.addItem(input.type, input.description, input.value)
 
     UICtrl.addListItem(newItem, input.type);
-    // add item to the UI
+
+    UICtrl.clearFields();
+
     // calculatek the budget
     // display the budget on the UI
   };
