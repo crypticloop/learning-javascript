@@ -37,3 +37,10 @@ Budget App Notes
 * Delegation allows you to:
   * Have an event handler for many elements, only written once on the parent
   * Attach an event handler to an object which is not in the DOM when the page is first loaded
+
+
+# Removing elements
+
+* Cannot simply remove an element in Javascript
+* Instead, have to go to the parent, and then remove the child
+* This and other processes are explained [here|https://blog.garstasio.com/you-dont-need-jquery/]

@@ -57,6 +57,18 @@ let budgetController = (function() {
       return newItem;
     },
 
+    deleteItem: function(type, id) {
+      let ids = data.allItems[type].map(function(current) {
+        return current.id;
+      });
+
+      index = ids.indexOf(id);
+
+      if (index  !== -1) {
+        data.allItems[type].splice(index, 1);
+      }
+    },
+
     calculateBudget: function() {
       calculateTotal('expense');
       calculateTotal('income');
@@ -104,7 +116,8 @@ let UIController = (function() {
     budgetLabel: '.budget__value',
     incomeLabel: '.budget__income--value',
     expenseLabel: '.budget__expenses--value',
-    percentageLabel: '.budget__expenses--percentage'
+    percentageLabel: '.budget__expenses--percentage',
+    container: '.container'
   }
 
   return {
@@ -139,6 +152,12 @@ let UIController = (function() {
 
       document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
 
+    },
+
+    deleteListItem: function(selectorID) {
+      let element  = document.getElementById(selectorID)
+
+      element.parentNode.removeChild(element);
     },
 
     clearFields: function() {
@@ -188,6 +207,19 @@ let controller = (function(budgetCtrl, UICtrl) {
         ctrlAddItem();
       }
     });
+
+    document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
+
+  }
+
+  let updatePercentages = function() {
+
+    // Calculate percentages
+
+    //Read percentages
+
+    // Update the UI
+
   }
 
   let updateBudget = function() {
@@ -221,11 +253,31 @@ let controller = (function(budgetCtrl, UICtrl) {
       UICtrl.clearFields();
 
       updateBudget();
+      updatePercentages();
     }
 
-
-    // display the budget on the UI
   };
+
+  let ctrlDeleteItem = function(event) {
+    let itemID, type, ID;
+
+    itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+    if (itemID) {
+
+      splitID = itemID.split('-');
+      type = splitID[0];
+      ID = parseInt(splitID[1]);
+
+      budgetCtrl.deleteItem(type, ID);
+
+      UICtrl.deleteListItem(itemID);
+
+      updateBudget();
+      updatePercentages();
+
+    }
+  }
 
   return {
     init: function() {
