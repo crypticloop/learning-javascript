@@ -1,0 +1,53 @@
+# ES6
+---
+
+* Can use ES6, 7 and 8 with all modern browsers,
+  * and with older browsers by transpiling and polyfilling
+* ES6 bought most of the updates, and 7 and 8 were small additions on top of this
+* The areas updated with ES6 were:
+  * variable declaration: `let` and `const`
+  * Blocks and IIFEs
+  * Strings
+  * Arrow functions
+  * Destructuring
+  * Arrays
+  * Spread operator
+  * Rest and default parameters
+  * Maps
+  * Classes and subclasses
+
+## `let` and `const`
+
+* ES5 used `var` to declare variables
+* `var` can be mutated
+  * `const` cannot be mutated
+  * `let` can be mutated
+* If trying to reassign `const`, `assignment to constant variable` error is returned
+* Functions declared with `let` and `const` are **block scoped**
+  * Cannot be accessed outside the curly braces in which they are defined
+* Declarations of `let` and `const` in higher order blocks make them accessible to all nested blocks
+  * **`const` must have a value assigned** in the higher order block
+  * `let` can be declared without a value and still used inside nested blocks
+* In ES5, variable names were **hoisted** and set as undefined
+  * ES6 instead returns a `... is not defined` error
+  * Occurs because of the `temporal debt zone`
+
+## Blocks and IIFEs
+
+* Simpler way of achieving data privacy instead of using IIFEs
+* Due to block scoping of variables
+* Instead of IIFE declaration, simply include inside **curly braces**
+
+## Strings
+
+* **Template literals** concatenates strings without '+' signs
+* Use the "\`" instead of "\'" signs
+* Include variables or expressions inside of `${...}` format
+  * functions can also be called inside of these
+* New string methods:
+  * `.startsWith('x')` returns boolean if string starts with character argument
+  * `.endsWith('x')` returns boolean if string ends with character argument
+  * `.includes('x')` returns boolean if string contains character argument
+  * `.repeat(x)` repeats the string **x number of times** in the same line
+
+## Arrow functions
