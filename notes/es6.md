@@ -51,3 +51,40 @@
   * `.repeat(x)` repeats the string **x number of times** in the same line
 
 ## Arrow functions
+
+* Arrow operator points from the argument declaration to the return statement
+  * Parenthesis used for multiple arguments
+* If function requires multiple lines or return is **not implicit**, curly braces required
+* Share the surrounding `this` keyword
+  * Don't get their own `this` keyword
+  * Inherit the `this` keyword from their surrounding function
+  * Known as a **lexical** `this` keyword
+* Therefore, arrow functions can be used inside objects to allow the `this` keyword to refer to the object
+
+## Destructuring
+
+* Allows writing of elements of an array to their own individual variables
+
+```
+const [name, age] = ['John', 26];
+```
+
+* Also works with objects, where assigning a destructor with curly braces to the name of the overall objects
+  * Can reassign the variable names with a colon
+
+```
+const obj {
+  firstName: "John",
+  lastName: "Smith"
+}
+
+const {firstName: a, lastName: b} = obj;
+
+console.log(a)
+
+// output: John
+```
+
+## Arrays
+
+*
