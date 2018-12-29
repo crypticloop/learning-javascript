@@ -87,4 +87,24 @@ console.log(a)
 
 ## Arrays
 
-*
+* In ES5, `document.querySelectorAll` returned a **node list** instead of an array
+* Had to convert this to an array using `Array.prototype.slice.call()`
+* In ES6, can use `Array.from()`
+  * Coupled with arrow functions, this reduces lines needed significantly
+
+* In ES5, loops could only have `break` or `continue` statements if used inside a `for` loop
+  * Cannot use inside a `.map()` or `.forEach*()` method
+* In ES6, can use `for of`
+
+```
+for (const cur of boxesArr) {
+  if (cur.className === 'box blue') {
+    continue;
+  }
+  cur.textContent = 'I changed to blue'
+}
+
+```
+
+* ES6 allows a quicker way to find indexes of arrays, using `.findIndex()` with a callback function
+* To find the value instead of the index, use `.find()` with the same qualifying callback function
