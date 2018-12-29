@@ -108,3 +108,36 @@ for (const cur of boxesArr) {
 
 * ES6 allows a quicker way to find indexes of arrays, using `.findIndex()` with a callback function
 * To find the value instead of the index, use `.find()` with the same qualifying callback function
+
+## Spread operator
+
+* Helps with passing the elements of an array as individual arguments into a function
+* IN ES5, used `.apply()` method
+
+```
+var ages = [1,2,3,4];
+var sum = addFourAges.apply(null, ages);
+```
+
+* IN ES6, can use the **spread** operator to split an array into its elements:
+
+```
+const sum = addFourAges(...ages);
+```
+
+* Can also join arrays using spread operator
+
+```
+const familySmith = ['John', 'Jane', 'Mark'];
+const familyMiller = ['Mary', 'Bob', 'Ann'];
+
+const bigFamily = [...familySmith, ...familyMiller];
+```
+
+* Can use the spread operator on a node list, where `.querySelectorAll()` is used
+  * Node list will still need converting into an array afterwards
+
+## Rest parameters
+
+* Rest parameters allow arbitrary number of arguments into a function
+* Uses same notation as the spread operator, but functions in the opposite way
