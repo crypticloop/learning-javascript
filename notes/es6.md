@@ -141,3 +141,16 @@ const bigFamily = [...familySmith, ...familyMiller];
 
 * Rest parameters allow arbitrary number of arguments into a function
 * Uses same notation as the spread operator, but functions in the opposite way
+* In ES5, arguments were accessed using the `Array.prototype.slice.call()` on the `arguments` keyword inside a function
+* In ES6, simply use the **rest operator**, same as spread operator, to assign a variable name to the arguments array
+
+```
+function isFullAge(...years) {
+  // Some function
+}
+
+isFullAge(1990, 1999, 1965, 2016, 1987);
+```
+
+* When using declared arguments as well, in ES5 the `.slice()` method used to get the arguments array will need to be changed to skip the first elements
+* In ES6, declared arguments are used as normal
