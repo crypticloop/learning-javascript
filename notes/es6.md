@@ -196,3 +196,41 @@ let questionString = question.get('question');
 
 * Maps have many useful methods, such as `.has()`, `.size()` and `.delete()`
 * Maps can be looped through using `.foreach()` and `for of`
+
+## Classes
+
+* Make it easier to implement inheritance
+
+```
+class Person {
+  constructor (name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+  }
+
+  calculateAge() {
+    ...
+  }
+
+  static greeting() {
+    ...
+  }
+
+}
+
+const John = new Person('John', 1990, 'teacher');
+```
+
+* Under the hood, this is exactly the same as a function definition
+* Static methods are not inherited by class instances
+* Class definitions are not hoisted
+* Can only add methods to classes, not properties
+
+## Inheritance
+
+* In ES5, this would be done using function constructors
+* A new function constructor would call the 'superclass' using the `.call()` function
+* The prototype of the new subclass will need to be set equal to `Object.create()` of the prototype of the superclass
+* In ES6, simply use `extends` keyword to mention the superclass in the class declaration
+* Inside the constructor, use the `super()` method with the superclass arguments so that the top level arguments are still processed
