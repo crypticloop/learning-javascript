@@ -154,3 +154,45 @@ isFullAge(1990, 1999, 1965, 2016, 1987);
 
 * When using declared arguments as well, in ES5 the `.slice()` method used to get the arguments array will need to be changed to skip the first elements
 * In ES6, declared arguments are used as normal
+
+## Default parameters
+
+* In ES5, if a function constructor is called without all arguments, undefined is assigned to the remaining arguments
+* Inside the function constructor, defaults are defined inside `if` statements where the input is checked against `undefined`
+* In ES6, default parameters are specified with an "=" where the parameters are declared:
+
+```
+function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'UK') {
+  this.firstName = firstName;
+  this.yearOfBirth = yearOfBirth;
+  this.lastName = lastName;
+  this.nationality = nationality;
+}
+```
+
+## Maps
+
+* Map is new key-value data structure
+* Any primitive value, or even function or objects, can be used as the key
+
+```
+const question = new Map();
+
+question.set('question', 'What is the name of the latest major JS version?');
+question.set(1, 'ES5');
+question.set(1, 'ES6');
+question.set(1, 'ES2015');
+question.set(1, 'ES7');
+question.set('correct',3);
+question.set(true, 'Correct Answer');
+question.set(true, 'Wrong Answer');
+```
+
+* To retrieve data, use opposite of set which is get:
+
+```
+let questionString = question.get('question');
+```
+
+* Maps have many useful methods, such as `.has()`, `.size()` and `.delete()`
+* Maps can be looped through using `.foreach()` and `for of`
